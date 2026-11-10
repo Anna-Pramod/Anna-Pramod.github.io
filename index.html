@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anna Pramod</title>
+<meta name="description" content="Anna Pramod, machine learning researcher in the AI in Medicine and Surgery (AIMS) lab at the University of Leeds. Multimodal and vision-language models, faithful evaluation, interpretability and efficient language models.">
+<meta name="author" content="Anna Pramod">
+<meta property="og:title" content="Anna Pramod">
+<meta property="og:description" content="Machine learning researcher. Vision-language models, medical imaging, faithful evaluation.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<!--
+  HOW TO EDIT
+  1. Photo: put a square photo named avatar.jpg next to this file. Until then the circle shows your initials.
+  2. News: add a new <li class="news-item"> at the TOP of the list inside <section data-page="news">.
+     The home page shows the first four automatically.
+  3. Publications: add a new <li class="pub"> inside <section data-page="publications">.
+     Add data-featured to show it on the home page too.
+  4. Awards and service: edit the lists inside <section data-page="achievements">.
+  Everything is in this one file. No build step.
+-->
+<style>
+  :root {
+    --paper: #ffffff;
+    --wash: #f3f6fa;
+    --ink: #1c2430;
+    --quiet: #586273;
+    --line: #dfe5ee;
+    --accent: #0b4f9e;
+    --accent-soft: #e6eef8;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #12161d;
+      --wash: #1a2029;
+      --ink: #e8ecf2;
+      --quiet: #a3adbb;
+      --line: #2b3440;
+      --accent: #8dbbf2;
+      --accent-soft: #1d2b3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.2; margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  p { margin: 0 0 1em; }
+
+  /* Top bar */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-inner {
+    max-width: 1120px; margin: 0 auto; padding: 0.85rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  }
+  .site-name { font-family: var(--serif); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+  .site-name:hover { text-decoration: none; }
+  .menu { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+  .menu a {
+    color: var(--quiet); font-weight: 600; font-size: 0.98rem;
+    padding: 0.35rem 0.75rem; border-radius: 999px;
+  }
+  .menu a:hover { color: var(--ink); text-decoration: none; background: var(--wash); }
+  .menu a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+
+  /* Page frame */
+  main { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  section[data-page] { padding-top: 3rem; }
+  .page-title { font-size: 2rem; margin-bottom: 0.6rem; }
+  .page-lede { color: var(--quiet); max-width: 62ch; margin-bottom: 2rem; }
+  .block-title { font-size: 1.45rem; margin: 2.75rem 0 1rem; }
+  .row-between { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .more { font-weight: 600; font-size: 0.98rem; }
+
+  /* Home: profile column plus biography */
+  .home-grid { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 3.5rem; align-items: start; }
+  .profile { text-align: center; position: sticky; top: 5.5rem; }
+  .avatar {
+    width: 210px; height: 210px; border-radius: 50%;
+    margin: 0 auto 1.25rem; overflow: hidden;
+    background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center;
+    font-family: var(--serif); font-weight: 700; font-size: 4rem;
+    border: 4px solid var(--paper); box-shadow: 0 0 0 1px var(--line);
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .profile h1 { font-size: 1.85rem; }
+  .role { margin: 0.5rem 0 0.15rem; font-weight: 600; }
+  .prev { color: var(--quiet); margin: 0; }
+  .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; margin-top: 1.1rem; }
+  .contact a {
+    font-size: 0.92rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.75rem;
+  }
+  .contact a:hover { background: var(--accent-soft); border-color: var(--accent-soft); text-decoration: none; }
+
+  .bio h2 { font-size: 2rem; margin-bottom: 1rem; }
+  .bio p { max-width: 70ch; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+  .facts h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+  .facts li { padding: 0.2rem 0; }
+  .facts .where { display: block; color: var(--quiet); font-size: 0.95rem; }
+
+  /* News */
+  .news-item { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .news-item:first-child { border-top: 1px solid var(--line); }
+  .news-item h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 700; }
+  .news-item p { margin: 0.25rem 0 0; max-width: 72ch; }
+  .news-item time { display: block; color: var(--quiet); font-size: 0.92rem; margin-top: 0.3rem; }
+
+  /* Publications */
+  .pub { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .pub:first-child { border-top: 1px solid var(--line); }
+  .pub .authors { color: var(--quiet); }
+  .pub .title { font-weight: 700; font-size: 1.1rem; display: block; margin: 0.1rem 0; }
+  .pub .venue { font-style: italic; }
+  .pub .oral { font-style: normal; font-weight: 700; }
+  .pub .gist { margin: 0.3rem 0 0; max-width: 72ch; }
+  .buttons { display: flex; gap: 0.4rem; margin-top: 0.55rem; flex-wrap: wrap; }
+  .buttons a {
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em;
+    border: 1px solid var(--accent); border-radius: 6px; padding: 0.1rem 0.6rem;
+  }
+  .buttons a:hover { background: var(--accent); color: var(--paper); text-decoration: none; }
+
+  /* Achievements and service */
+  .entries li {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem;
+    padding: 0.8rem 0; border-bottom: 1px solid var(--line);
+  }
+  .entries li:first-child { border-top: 1px solid var(--line); }
+  .entries .what { max-width: 74ch; }
+  .entries .when { color: var(--quiet); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  footer { border-top: 1px solid var(--line); color: var(--quiet); font-size: 0.92rem; }
+  footer div { max-width: 1120px; margin: 0 auto; padding: 1.5rem; }
+
+  @media (max-width: 860px) {
+    .home-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .profile { position: static; }
+    .avatar { width: 160px; height: 160px; font-size: 3rem; }
+    .facts { grid-template-columns: 1fr; gap: 1.25rem; }
+    .entries li { grid-template-columns: 1fr; gap: 0.1rem; }
+    section[data-page] { padding-top: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <a class="site-name" href="#/">Anna Pramod</a>
+    <nav class="menu" aria-label="Main">
+      <a href="#/" data-nav="home">About Me</a>
+      <a href="#/news" data-nav="news">News</a>
+      <a href="#/achievements" data-nav="achievements">Outreach &amp; Achievements</a>
+      <a href="#/publications" data-nav="publications">Publications</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ ABOUT ME ============================ -->
+<section data-page="home">
+  <div class="home-grid">
+    <aside class="profile">
+      <div class="avatar"><img src="avatar.jpg" alt="Portrait of Anna Pramod" onerror="this.replaceWith(document.createTextNode('AP'))"></div>
+      <h1>Anna Pramod</h1>
+      <p class="role">Graduate Researcher @ AIMS Lab, Leeds</p>
+      <p class="prev">MSc AI, Distinction</p>
+      <p class="prev">Previously AI Engineer @ UST</p>
+      <div class="contact">
+        <a href="mailto:annapramod2000@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=i868L3YAAAAJ">Google Scholar</a>
+        <a href="https://github.com/Anna-Pramod">GitHub</a>
+        <a href="https://www.linkedin.com/in/anna-pramod/">LinkedIn</a>
+      </div>
+    </aside>
+
+    <div class="bio">
+      <h2>About Me</h2>
+      <p>Hi there! 👋 I am a machine learning researcher in <a href="https://eps.leeds.ac.uk/computing/staff/11465/dr-sharib-ali">Dr Sharib Ali</a>'s <a href="https://artificial-intelligence.leeds.ac.uk/aims/">AI in Medicine and Surgery (AIMS) lab</a> at the <a href="https://www.leeds.ac.uk/">University of Leeds</a>, where I completed my MSc in Advanced Computer Science (Artificial Intelligence) with Distinction. My research sits at the intersection of <strong>multimodal and vision-language models, foundation-model evaluation, interpretability and efficient language models</strong>. I am particularly interested in what models actually learn from the data and language they are trained on, and in measuring it faithfully, from medical imaging to low-resource languages. Beyond research, I am actively involved in the AI <a href="#/achievements">community through teaching, writing, podcasting and women-in-computing networks</a>.</p>
+
+      <p>During my Master's, I published four first-author papers in 2026. <a href="https://papers.miccai.org/miccai-2026-sat/paper/CaPTion_035.pdf">FaithCLIP</a> was presented as an <strong>oral contribution</strong> at the <a href="https://conferences.miccai.org/2026/en/workshops.asp">CaPTion Workshop, MICCAI 2026</a> in Strasbourg. My paper <a href="https://openreview.net/forum?id=gIi9f97tCE">Queryable Is Not Grounded</a> was presented at the <a href="https://eccv.ecva.net/virtual/2026/workshop/3012">eXCV Workshop at ECCV 2026</a> in Malmö. I also published on <a href="https://arxiv.org/abs/2610.24818">tokeniser coverage for Indic scripts</a> at the GlobalSouthAI Workshop, co-located with IJCAI-ECAI 2026, and on <a href="https://womencourage.acm.org/2026/wp-content/uploads/2026/10/womencourage2026-posters-final107.pdf">small language models</a> at ACM womENcourage 2026. I was supported by an <a href="https://womencourage.acm.org/2026/">ACM-W Europe Scholarship</a> and a <a href="https://drive.google.com/file/d/1oDkfei4nlcmP8Btu1wImq2Eg7C-59ydJ/view?usp=sharing">BCSWomen Lovelace Colloquium Full Scholarship</a>.</p>
+
+      <p>Before my Master's, I spent three years at <a href="https://www.ust.com/">UST</a>, where I was promoted twice to AI Engineer. I fine-tuned the multilingual model behind an automotive client's sentiment platform on <a href="https://www.nvidia.com/en-us/ai-data-science/products/nemo/">NVIDIA NeMo</a> in a three-way engagement with NVIDIA, and I deployed a real-time fall-detection model to smartwatches through <a href="https://onnxruntime.ai/">ONNX Runtime</a>. Before that, I completed my B.Tech in Computer Science and Engineering at <a href="https://ktu.edu.in/">APJ Abdul Kalam Technological University</a> with Distinction, and I was named an Advancing Inclusion Scholar at <a href="https://drive.google.com/file/d/12NwXFfhuzCiNBNuWOWEfPevML7zrDZTd/view?usp=sharing">Grace Hopper Celebration India</a>.</p>
+
+      <p>I am always glad to collaborate and talk about new ideas, so please do reach out! 😊</p>
+
+      <div class="facts">
+        <div>
+          <h3>Interests</h3>
+          <ul>
+            <li>Multimodal and Vision-Language Models</li>
+            <li>Faithful Evaluation and Interpretability</li>
+            <li>Machine Learning for Healthcare</li>
+            <li>Efficient and Multilingual Language Models</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <ul>
+            <li>MSc Advanced Computer Science (AI), Distinction, 2026<span class="where">University of Leeds</span></li>
+            <li>B.Tech Computer Science and Engineering, Distinction, 2022<span class="where">APJ Abdul Kalam Technological University</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-between">
+    <h2 class="block-title">Recent News</h2>
+    <a class="more" href="#/news">See all news</a>
+  </div>
+  <ul id="home-news"></ul>
+
+  <div class="row-between">
+    <h2 class="block-title">Featured Publications</h2>
+    <a class="more" href="#/publications">See all publications</a>
+  </div>
+  <ul id="home-pubs"></ul>
+</section>
+
+<!-- ============================== NEWS ============================== -->
+<section data-page="news">
+  <h2 class="page-title">News</h2>
+  <ul id="all-news">
+    <li class="news-item">
+      <h3>🎓 Awarded my MSc with Distinction</h3>
+      <p>I completed my MSc in Advanced Computer Science (Artificial Intelligence) at the University of Leeds. My dissertation, <em>Information vs Alignment in Medical Vision-Language Learning</em>, became two first-author papers.</p>
+      <time>Oct 2026</time>
+    </li>
+    <li class="news-item">
+      <h3>🎤 Oral contribution at the CaPTion Workshop, MICCAI 2026</h3>
+      <p>I presented <a href="https://papers.miccai.org/miccai-2026-sat/paper/CaPTion_035.pdf">FaithCLIP</a> in Strasbourg. It shows that faithful language rather than added information drives image-text alignment.</p>
+      <time>Oct 1, 2026</time>
+    </li>
+    <li class="news-item">
+      <h3>✈️ ACM-W Europe Scholarship and hackathon at ACM womENcourage 2026</h3>
+      <p>An ACM-W Europe Scholarship funded my travel to France, where my small-language-model paper appeared and our team, Codelex, built a browser extension that helps developers with dyslexia read code on GitHub.</p>
+      <time>Sep 30, 2026</time>
+    </li>
+    <li class="news-item">
+      <h3>📝 Presented at the eXCV Workshop at ECCV 2026</h3>
+      <p>I presented <a href="https://openreview.net/forum?id=gIi9f97tCE">Queryable Is Not Grounded</a> in Malmö. It shows that zero-shot scores conflate presence, addressability and grounding.</p>
+      <time>Sep 2026</time>
+    </li>
+    <li class="news-item">
+      <h3>🌍 Tokeniser paper at the GlobalSouthAI Workshop</h3>
+      <p><a href="https://arxiv.org/abs/2610.24818">Efficiency Measured in English</a> was accepted at the GlobalSouthAI Workshop, co-located with IJCAI-ECAI 2026 in Bremen.</p>
+      <time>2026</time>
+    </li>
+    <li class="news-item">
+      <h3>🏅 Finalist at the BCSWomen Lovelace Colloquium</h3>
+      <p>BCSWomen fully funded my attendance at the Lovelace Colloquium 2026 at the University of Bath, where my poster was a finalist.</p>
+      <time>2026</time>
+    </li>
+    <li class="news-item">
+      <h3>✍️ Two articles for the World Economic Forum</h3>
+      <p>I wrote <a href="https://www.weforum.org/stories/artificial-intelligence/ai-cognition-infrastructure-future-governance-decisions">Why governing AI means governing cognition</a> and <a href="https://www.weforum.org/stories/artificial-intelligence/ai-state-capacity-administration-infrastructure">State infrastructure in a box</a>.</p>
+      <time>2026</time>
+    </li>
+    <li class="news-item">
+      <h3>🎙️ Co-hosting the University of Leeds podcast</h3>
+      <p>I was recruited to establish and co-host <a href="https://theexperienceeffect.podbean.com/">The Experience Effect</a>, the University's podcast.</p>
+      <time>2026</time>
+    </li>
+    <li class="news-item">
+      <h3>🏆 Best Poster at the IEEE UK &amp; Ireland WIE International Leadership Summit</h3>
+      <p>My research on small language models for low-resource multilingual NLP won <a href="https://drive.google.com/file/d/1S_XgyjQwOtEFY4t3ly19ENc4yAtOdiN1/view?usp=sharing">Best Poster</a>.</p>
+      <time>2025</time>
+    </li>
+    <li class="news-item">
+      <h3>🏛️ Joined the AIMS lab at the University of Leeds</h3>
+      <p>I started my MSc and my research on medical vision-language models with Dr Sharib Ali.</p>
+      <time>Sep 2025</time>
+    </li>
+  </ul>
+</section>
+
+<!-- ==================== OUTREACH & ACHIEVEMENTS ==================== -->
+<section data-page="achievements">
+  <h2 class="page-title">Outreach &amp; Achievements</h2>
+  <p class="page-lede">Research is a shared effort. Here is how I take part in the community, and the scholarships and awards that have supported my work.</p>
+
+  <h2 class="block-title">Academic Service</h2>
+  <ul class="entries">
+    <li><span class="what"><strong>Conference Talks:</strong> Oral contribution, CaPTion Workshop, MICCAI 2026, Strasbourg. Paper presentation, eXCV Workshop at ECCV 2026, Malmö.</span><span class="when">2026</span></li>
+    <li><span class="what"><strong>Poster Presentations:</strong> ACM womENcourage 2026, France. BCSWomen Lovelace Colloquium 2026, Bath. <a href="https://sustainability.leeds.ac.uk/student-sustainability-research-conference-programme/">Student Sustainability Research Conference 2026</a>, Leeds. IEEE UK &amp; Ireland WIE International Leadership Summit 2025.</span><span class="when">2025 to 2026</span></li>
+    <li><span class="what"><strong>Academic Lead:</strong> Active &amp; Experiential Learning Incubator, <a href="https://teachingexcellence.leeds.ac.uk/lite-incubators/">Leeds Institute for Teaching Excellence</a>. Led a student team and evaluated research proposals for study design and rigour.</span><span class="when">2025 to 2026</span></li>
+    <li><span class="what"><strong>Teaching:</strong> Certified Instructor, AI Foundations for Women, <a href="https://empressa.ai/2025/10/02/press-ai-foundations-for-women-launch/">Empressa AI</a>. More than 50 learners across several time zones.</span><span class="when">2025 to 2026</span></li>
+    <li><span class="what"><strong>Podcast Host:</strong> <a href="https://theexperienceeffect.podbean.com/">The Experience Effect</a>, University of Leeds. Recruited to establish and co-host the University's podcast.</span><span class="when">2026</span></li>
+    <li><span class="what"><strong>Science Writing:</strong> Two articles on AI and governance for the <a href="https://www.weforum.org/people/anna-pramod">World Economic Forum</a>.</span><span class="when">2026</span></li>
+    <li><span class="what"><strong>Impact Officer:</strong> <a href="https://www.globalshapers.org/">Global Shapers Community</a>, a World Economic Forum initiative.</span><span class="when">2025 to 2026</span></li>
+    <li><span class="what"><strong>Open-Source Releases:</strong> <a href="https://github.com/Anna-Pramod/FaithCLIP">FaithCLIP</a> code released with the paper. Public <a href="https://huggingface.co/spaces/annavivin/tinyllama-indic-sentiment-demo">Hugging Face demo</a> of my small-language-model work.</span><span class="when">2025 to 2026</span></li>
+    <li><span class="what"><strong>Hackathon Participant:</strong> Team Codelex, ACM womENcourage 2026 Hackathon.</span><span class="when">2026</span></li>
+    <li><span class="what"><strong>Community:</strong> ACM-W Europe, BCSWomen, IEEE Women in Engineering.</span><span class="when">2025 to 2026</span></li>
+  </ul>
+
+  <h2 class="block-title">Scholarships &amp; Awards</h2>
+  <ul class="entries">
+    <li><span class="what"><strong><a href="https://womencourage.acm.org/2026/">ACM-W Europe Scholarship</a>, ACM womENcourage 2026.</strong> Travel grant and conference registration from ACM-W Europe (Association for Computing Machinery), funding my international travel to present my research at the 13th ACM-W Europe Celebration of Women in Computing, France.</span><span class="when">2026</span></li>
+    <li><span class="what"><strong><a href="https://drive.google.com/file/d/1oDkfei4nlcmP8Btu1wImq2Eg7C-59ydJ/view?usp=sharing">BCSWomen Full Scholarship and Poster Finalist</a>, Lovelace Colloquium.</strong> Fully funded attendance from BCSWomen (BCS, The Chartered Institute for IT) at the University of Bath, where my poster was a finalist.</span><span class="when">2026</span></li>
+    <li><span class="what"><strong>Distinction, MSc Advanced Computer Science (AI), University of Leeds.</strong> The highest UK postgraduate classification. Dissertation 79%, published as two first-author papers.</span><span class="when">2026</span></li>
+    <li><span class="what"><strong><a href="https://drive.google.com/file/d/1S_XgyjQwOtEFY4t3ly19ENc4yAtOdiN1/view?usp=sharing">Best Poster Award</a>, IEEE UK &amp; Ireland WIE International Leadership Summit.</strong> For my research on small language models for low-resource multilingual NLP.</span><span class="when">2025</span></li>
+    <li><span class="what"><strong><a href="https://drive.google.com/file/d/12NwXFfhuzCiNBNuWOWEfPevML7zrDZTd/view?usp=sharing">Advancing Inclusion Scholar</a>, Grace Hopper Celebration India.</strong> Scholarship awarded by AnitaB.org.</span><span class="when">2025</span></li>
+    <li><span class="what"><strong><a href="https://drive.google.com/file/d/1p4i2kL2JYQ2QJQk_2xAwLwmPwn2_lq_g/view?usp=sharing">Winner, UST QSR Hackathon</a>.</strong> UST, London.</span><span class="when">2025</span></li>
+    <li><span class="what"><strong><a href="https://drive.google.com/file/d/1ABr2Zd4lxgwEFJUhapKw1rKqcpKcFYYl/view?usp=sharing">Top 700 of more than 57,000 entries</a>, Google Cloud Agentic AI Hackathon.</strong> With <a href="https://github.com/Anna-Pramod/finsight-agent">FinSight</a>, an agentic AI assistant.</span><span class="when"></span></li>
+    <li><span class="what"><strong>Selected D3 Representative, UST.</strong> Chosen on performance to represent my account team at D3, UST's flagship technology conference.</span><span class="when">2022 to 2025</span></li>
+    <li><span class="what"><strong>Distinction, B.Tech Computer Science and Engineering.</strong> GPA 8.87/10, APJ Abdul Kalam Technological University.</span><span class="when">2022</span></li>
+  </ul>
+</section>
+
+<!-- ========================== PUBLICATIONS ========================== -->
+<section data-page="publications">
+  <h2 class="page-title">Publications</h2>
+  <ul id="all-pubs">
+    <li class="pub" data-featured>
+      <span class="authors">Anna Pramod, Raneem Toman, Sharib Ali (2026).</span>
+      <a class="title" href="https://papers.miccai.org/miccai-2026-sat/paper/CaPTion_035.pdf">FaithCLIP: Faithful Geometry-Derived Alignment for Text-Queryable Polyp Representations</a>
+      <span class="venue">In CaPTion Workshop, MICCAI 2026. <span class="oral">Oral contribution.</span></span>
+      <p class="gist">Shows that faithful language rather than added information drives image-text alignment.</p>
+      <div class="buttons">
+        <a href="https://papers.miccai.org/miccai-2026-sat/paper/CaPTion_035.pdf">PDF</a>
+        <a href="https://github.com/Anna-Pramod/FaithCLIP">Code</a>
+      </div>
+    </li>
+    <li class="pub" data-featured>
+      <span class="authors">Anna Pramod (2026).</span>
+      <a class="title" href="https://openreview.net/forum?id=gIi9f97tCE">Queryable Is Not Grounded: Reference-Anchored Faithfulness Evaluation for Foundation Vision-Language Models</a>
+      <span class="venue">In eXCV Workshop at ECCV 2026 (Proceedings Track).</span>
+      <p class="gist">Shows that zero-shot scores conflate presence, addressability and grounding, and gives a reference-anchored protocol that separates them.</p>
+      <div class="buttons">
+        <a href="https://openreview.net/forum?id=gIi9f97tCE">PDF</a>
+      </div>
+    </li>
+    <li class="pub" data-featured>
+      <span class="authors">Anna Pramod (2026).</span>
+      <a class="title" href="https://arxiv.org/abs/2610.24818">Efficiency Measured in English: Tokeniser Coverage Bounds Small Language Models on Indic Scripts</a>
+      <span class="venue">In GlobalSouthAI Workshop, co-located with IJCAI-ECAI 2026.</span>
+      <div class="buttons">
+        <a href="https://arxiv.org/abs/2610.24818">PDF</a>
+      </div>
+    </li>
+    <li class="pub">
+      <span class="authors">Anna Pramod (2026).</span>
+      <a class="title" href="https://womencourage.acm.org/2026/wp-content/uploads/2026/10/womencourage2026-posters-final107.pdf">Designing Inclusive and Sustainable Multilingual AI through Small Language Models</a>
+      <span class="venue">In Proceedings of ACM womENcourage 2026.</span>
+      <div class="buttons">
+        <a href="https://womencourage.acm.org/2026/wp-content/uploads/2026/10/womencourage2026-posters-final107.pdf">PDF</a>
+        <a href="https://github.com/Anna-Pramod/SLM-Indic-Sentiment-Multilingual-Sentiment-Analysis-with-TinyLlama">Code</a>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="block-title">Articles</h2>
+  <ul>
+    <li class="pub">
+      <span class="authors">Anna Pramod (2026).</span>
+      <a class="title" href="https://www.weforum.org/stories/artificial-intelligence/ai-cognition-infrastructure-future-governance-decisions">Why governing AI means governing cognition</a>
+      <span class="venue">World Economic Forum.</span>
+    </li>
+    <li class="pub">
+      <span class="authors">Anna Pramod (2026).</span>
+      <a class="title" href="https://www.weforum.org/stories/artificial-intelligence/ai-state-capacity-administration-infrastructure">State infrastructure in a box: can AI help countries import good government?</a>
+      <span class="venue">World Economic Forum.</span>
+    </li>
+  </ul>
+
+  <p style="margin-top:1.5rem">You can also find my work on <a href="https://scholar.google.com/citations?user=i868L3YAAAAJ">Google Scholar</a>.</p>
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 Anna Pramod</div>
+</footer>
+
+<script>
+(function () {
+  var pages = document.querySelectorAll('section[data-page]');
+  var links = document.querySelectorAll('[data-nav]');
+
+  // Home page previews are copied from the full lists, so each item is written once.
+  function copyInto(targetId, items) {
+    var target = document.getElementById(targetId);
+    items.forEach(function (el) { target.appendChild(el.cloneNode(true)); });
+  }
+  copyInto('home-news', Array.prototype.slice.call(document.querySelectorAll('#all-news .news-item'), 0, 4));
+  copyInto('home-pubs', Array.prototype.slice.call(document.querySelectorAll('#all-pubs .pub[data-featured]')));
+
+  function show() {
+    var name = (location.hash.replace(/^#\/?/, '') || 'home');
+    var known = false;
+    pages.forEach(function (p) { if (p.dataset.page === name) known = true; });
+    if (!known) name = 'home';
+    pages.forEach(function (p) { p.hidden = p.dataset.page !== name; });
+    links.forEach(function (a) {
+      if (a.dataset.nav === name) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', show);
+  show();
+})();
+</script>
+</body>
+</html>
