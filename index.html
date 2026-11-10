@@ -11,7 +11,9 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1/css/academicons.min.css">
 <!--
   HOW TO EDIT
   1. Photo: put a square photo named avatar.jpg next to this file. Until then the circle shows your initials.
@@ -24,145 +26,134 @@
 -->
 <style>
   :root {
-    --paper: #ffffff;
-    --wash: #f3f6fa;
-    --ink: #1c2430;
-    --quiet: #586273;
-    --line: #dfe5ee;
-    --accent: #0b4f9e;
-    --accent-soft: #e6eef8;
-    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-    --sans: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #12161d;
-      --wash: #1a2029;
-      --ink: #e8ecf2;
-      --quiet: #a3adbb;
-      --line: #2b3440;
-      --accent: #8dbbf2;
-      --accent-soft: #1d2b3d;
-    }
+    --page: #17181c;
+    --bar: #27272a;
+    --white: #ffffff;
+    --prose: #cbd5e1;
+    --soft: #d1d5db;
+    --meta: #9ca3af;
+    --rule: #737373;
+    --button: #34d399;
+    --foot: #e2e8f0;
+    --foot-link: #93c5fd;
+    --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
+    background: var(--page);
+    color: var(--white);
     font-family: var(--sans);
-    font-size: 1.0625rem;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 24px;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-  h1, h2, h3 { font-family: var(--serif); line-height: 1.2; margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--foot-link); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--sans); margin: 0; }
   ul { margin: 0; padding: 0; list-style: none; }
-  p { margin: 0 0 1em; }
+  p { margin: 0; }
 
-  /* Top bar */
-  .bar {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-  }
+  /* Top bar: 72px tall, name on the left, menu in the centre */
+  .bar { background: var(--bar); }
   .bar-inner {
-    max-width: 1120px; margin: 0 auto; padding: 0.85rem 1.5rem;
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    min-height: 72px; padding: 12px;
   }
-  .site-name { font-family: var(--serif); font-weight: 700; font-size: 1.2rem; color: var(--ink); }
-  .site-name:hover { text-decoration: none; }
-  .menu { display: flex; gap: 0.25rem; flex-wrap: wrap; }
-  .menu a {
-    color: var(--quiet); font-weight: 600; font-size: 0.98rem;
-    padding: 0.35rem 0.75rem; border-radius: 999px;
+  .site-name { font-size: 20px; line-height: 30px; font-weight: 600; justify-self: start; }
+  .menu { display: flex; gap: 0; flex-wrap: wrap; justify-content: center; }
+  .menu a { font-size: 16px; line-height: 24px; font-weight: 600; padding: 12px 16px; }
+  .menu a:hover { color: var(--soft); }
+
+  main { max-width: none; margin: 0; padding: 0; }
+
+  /* Home: blue biography block */
+  .home-grid {
+    display: flex; justify-content: center; align-items: flex-start; gap: 48px;
+    padding: 96px 12px;
+    background-color: #164a6d;
+    background-image:
+      radial-gradient(circle 75vw at 33% 15%, rgba(39, 155, 193, 0.16), rgba(39, 155, 193, 0) 100%),
+      radial-gradient(circle 75vw at 66% 15%, rgba(39, 155, 193, 0.16), rgba(39, 155, 193, 0) 100%),
+      linear-gradient(180deg, rgba(39, 155, 193, 0) 35%, rgba(39, 155, 193, 0.22) 100%),
+      radial-gradient(ellipse 65% 130% at 50% 70%, #40668e 0%, #164a6d 100%);
   }
-  .menu a:hover { color: var(--ink); text-decoration: none; background: var(--wash); }
-  .menu a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
-
-  /* Page frame */
-  main { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-  section[data-page] { padding-top: 3rem; }
-  .page-title { font-size: 2rem; margin-bottom: 0.6rem; }
-  .page-lede { color: var(--quiet); max-width: 62ch; margin-bottom: 2rem; }
-  .block-title { font-size: 1.45rem; margin: 2.75rem 0 1rem; }
-  .row-between { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-  .more { font-weight: 600; font-size: 0.98rem; }
-
-  /* Home: profile column plus biography */
-  .home-grid { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 3.5rem; align-items: start; }
-  .profile { text-align: center; position: sticky; top: 5.5rem; }
+  .profile { flex: none; width: 333px; text-align: center; }
   .avatar {
-    width: 210px; height: 210px; border-radius: 50%;
-    margin: 0 auto 1.25rem; overflow: hidden;
-    background: var(--accent-soft); color: var(--accent);
+    width: 158px; height: 158px; border-radius: 9999px;
+    margin: 40px auto 0; padding: 4px; overflow: hidden;
+    background: #1f2937; color: var(--white);
     display: grid; place-items: center;
-    font-family: var(--serif); font-weight: 700; font-size: 4rem;
-    border: 4px solid var(--paper); box-shadow: 0 0 0 1px var(--line);
+    font-size: 48px; font-weight: 700;
   }
-  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .profile h1 { font-size: 1.85rem; }
-  .role { margin: 0.5rem 0 0.15rem; font-weight: 600; }
-  .prev { color: var(--quiet); margin: 0; }
-  .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; margin-top: 1.1rem; }
-  .contact a {
-    font-size: 0.92rem; font-weight: 600;
-    border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.75rem;
+  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 9999px; }
+  .profile h1 { font-size: 30px; line-height: 36px; font-weight: 700; margin: 24px 0 8px; }
+  .role { font-size: 16px; line-height: 24px; font-weight: 600; margin: 0; }
+  .prev { font-size: 16px; line-height: 24px; font-weight: 600; margin: 0; }
+  .prev + .prev { font-weight: 400; margin: 4px 0 8px; }
+  .contact { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin-top: 8px; color: #f4f4f5; }
+  .contact a { font-size: 20px; line-height: 24px; }
+  .contact a:hover { color: var(--soft); }
+
+  .bio { width: 650px; max-width: 100%; padding-top: 8px; color: var(--prose); font-size: 16px; line-height: 28px; }
+  .bio h2 { font-size: 24px; line-height: 32px; font-weight: 700; color: var(--white); margin: 48px 0 24px; }
+  .bio p { margin: 20px 0; }
+  .bio p a, .entries a, .news-item p a, .page-lede a {
+    color: var(--white); font-weight: 500;
+    text-decoration: underline; text-decoration-color: var(--rule);
   }
-  .contact a:hover { background: var(--accent-soft); border-color: var(--accent-soft); text-decoration: none; }
+  .bio strong { color: var(--white); font-weight: 600; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; color: var(--soft); line-height: 24px; }
+  .facts h3 { font-size: 20px; line-height: 30px; font-weight: 700; margin-bottom: 12px; }
+  .facts ul { list-style: disc inside; padding-left: 20px; }
+  .facts li + li { margin-top: 4px; }
+  .facts .where { display: block; padding-left: 20px; color: var(--meta); font-size: 14px; }
 
-  .bio h2 { font-size: 2rem; margin-bottom: 1rem; }
-  .bio p { max-width: 70ch; }
-  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-  .facts h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
-  .facts li { padding: 0.2rem 0; }
-  .facts .where { display: block; color: var(--quiet); font-size: 0.95rem; }
+  /* Section headings, centred with the link underneath */
+  .row-between { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 96px; }
+  .block-title, .page-title { font-size: 30px; line-height: 36px; font-weight: 700; text-align: center; margin: 0 0 24px; }
+  .more { font-size: 16px; font-weight: 400; }
+  .more:hover, .site-name:hover { text-decoration: underline; }
 
-  /* News */
-  .news-item { padding: 1rem 0; border-bottom: 1px solid var(--line); }
-  .news-item:first-child { border-top: 1px solid var(--line); }
-  .news-item h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 700; }
-  .news-item p { margin: 0.25rem 0 0; max-width: 72ch; }
-  .news-item time { display: block; color: var(--quiet); font-size: 0.92rem; margin-top: 0.3rem; }
+  /* News: two columns, no dividers */
+  #home-news, #all-news {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    max-width: 1024px; margin: 0 auto; padding: 32px 20px;
+  }
+  .news-item h3 { font-size: 18px; line-height: 24.75px; font-weight: 600; letter-spacing: -0.025em; margin-top: 8px; }
+  .news-item p { font-size: 14px; line-height: 21px; color: var(--meta); margin-top: 12px; }
+  .news-item time { display: block; font-size: 14px; line-height: 21px; color: var(--meta); margin-top: 12px; }
 
-  /* Publications */
-  .pub { padding: 1rem 0; border-bottom: 1px solid var(--line); }
-  .pub:first-child { border-top: 1px solid var(--line); }
-  .pub .authors { color: var(--quiet); }
-  .pub .title { font-weight: 700; font-size: 1.1rem; display: block; margin: 0.1rem 0; }
+  /* Publications: one running citation per paper */
+  #home-pubs, #all-pubs, #all-pubs ~ ul, #all-pubs ~ p { max-width: 768px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+  #home-pubs { padding-top: 32px; padding-bottom: 96px; }
+  .pub { margin-bottom: 28px; }
+  .pub .title { font-weight: 400; text-decoration: underline; }
   .pub .venue { font-style: italic; }
   .pub .oral { font-style: normal; font-weight: 700; }
-  .pub .gist { margin: 0.3rem 0 0; max-width: 72ch; }
-  .buttons { display: flex; gap: 0.4rem; margin-top: 0.55rem; flex-wrap: wrap; }
-  .buttons a {
-    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em;
-    border: 1px solid var(--accent); border-radius: 6px; padding: 0.1rem 0.6rem;
-  }
-  .buttons a:hover { background: var(--accent); color: var(--paper); text-decoration: none; }
+  .pub .gist { color: var(--prose); margin-top: 2px; }
+  .buttons { display: flex; gap: 16px; margin-top: 2px; }
+  .buttons a { color: var(--button); font-weight: 700; }
+  .buttons a:hover { text-decoration: underline; }
 
-  /* Achievements and service */
-  .entries li {
-    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem;
-    padding: 0.8rem 0; border-bottom: 1px solid var(--line);
-  }
-  .entries li:first-child { border-top: 1px solid var(--line); }
-  .entries .what { max-width: 74ch; }
-  .entries .when { color: var(--quiet); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  /* News, Outreach and Publications pages */
+  section[data-page]:not([data-page="home"]) { padding: 64px 0; }
+  .page-lede { max-width: 602px; margin: 0 auto 64px; padding: 0 20px; font-size: 20px; line-height: 36px; color: var(--prose); }
+  .page-lede + .block-title, .entries + .block-title, #all-pubs + .block-title { margin-top: 64px; }
+  .entries { max-width: 602px; margin: 0 auto; padding: 0 20px; font-size: 20px; line-height: 36px; color: var(--prose); }
+  .entries strong { color: var(--white); font-weight: 600; }
+  .entries .when { font-style: italic; margin-left: 0.35em; }
 
-  footer { border-top: 1px solid var(--line); color: var(--quiet); font-size: 0.92rem; }
-  footer div { max-width: 1120px; margin: 0 auto; padding: 1.5rem; }
+  footer { margin: 96px 0 16px; text-align: center; font-size: 14px; line-height: 24px; color: var(--foot); }
+  footer a { color: var(--foot-link); }
 
   @media (max-width: 860px) {
-    .home-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .profile { position: static; }
-    .avatar { width: 160px; height: 160px; font-size: 3rem; }
-    .facts { grid-template-columns: 1fr; gap: 1.25rem; }
-    .entries li { grid-template-columns: 1fr; gap: 0.1rem; }
-    section[data-page] { padding-top: 2rem; }
+    .bar-inner { grid-template-columns: 1fr; justify-items: center; }
+    .site-name { justify-self: center; }
+    .home-grid { flex-direction: column; align-items: center; gap: 24px; padding: 48px 20px; }
+    .profile { width: 100%; }
+    .bio h2 { margin-top: 0; }
+    .facts, #home-news, #all-news { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -192,10 +183,10 @@
       <p class="prev">MSc Adv Computer Science in AI, Distinction</p>
       <p class="prev">Previously AI Engineer @ UST</p>
       <div class="contact">
-        <a href="mailto:annapramod2000@gmail.com">Email</a>
-        <a href="https://scholar.google.com/citations?user=i868L3YAAAAJ">Google Scholar</a>
-        <a href="https://github.com/Anna-Pramod">GitHub</a>
-        <a href="https://www.linkedin.com/in/anna-pramod/">LinkedIn</a>
+        <a href="mailto:annapramod2000@gmail.com" aria-label="Email"><i class="fa-solid fa-at"></i></a>
+        <a href="https://github.com/Anna-Pramod" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/anna-pramod/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://scholar.google.com/citations?user=i868L3YAAAAJ" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
       </div>
     </aside>
 
@@ -231,14 +222,14 @@
   </div>
 
   <div class="row-between">
-    <h2 class="block-title">Recent News</h2>
-    <a class="more" href="#/news">See all news</a>
+    <h2 class="block-title">🗞️ Recent News</h2>
+    <a class="more" href="#/news">See all news >></a>
   </div>
   <ul id="home-news"></ul>
 
   <div class="row-between">
-    <h2 class="block-title">Featured Publications</h2>
-    <a class="more" href="#/publications">See all publications</a>
+    <h2 class="block-title">📝 Featured Publications</h2>
+    <a class="more" href="#/publications">See all publications >></a>
   </div>
   <ul id="home-pubs"></ul>
 </section>
